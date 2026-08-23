@@ -43,6 +43,7 @@ debugger;
       />
 
       <h1>Redux Debug Sandbox</h1>
+      <h1>Redux........................</h1>
       <p>Open the console and Redux DevTools to trace state changes.</p>
 
       <div className="controls">
