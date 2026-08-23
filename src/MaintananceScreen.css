@@ -1,0 +1,47 @@
+.container {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 100dvh;
+    width: 100%;
+    justify-items: center;
+    padding-top: 20vh;
+    box-sizing: border-box;
+}
+
+.title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin: 0.5rem 0 0;
+}0
+
+.bottomcard {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    display: grid;
+    background-color: red;
+    height: 200px;
+    width: 80%;
+    justify-items: center;
+    align-content: center;
+}
+
+.bottomcarditem {
+    height: 20px;
+    width: 90%;
+    display: grid;
+    background-color: yellow;
+    justify-items: center;
+    align-content: center;
+    margin: 10px;
+}
