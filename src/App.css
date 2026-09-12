@@ -1,8 +1,42 @@
 .app-shell {
-  max-width: 700px;
+  max-width: 980px;
   margin: 40px auto;
   padding: 24px;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  color: #172033;
+}
+
+.app-header,
+.panel-heading,
+.stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.app-header {
+  border-bottom: 1px solid #dbe3ef;
+  padding-bottom: 24px;
+}
+
+.app-header h1,
+.panel h2 {
+  margin: 0;
+}
+
+.app-header p {
+  color: #526078;
+  margin: 8px 0 0;
+}
+
+.eyebrow {
+  color: #2563eb !important;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 !important;
+  text-transform: uppercase;
 }
 
 .controls {
@@ -38,6 +72,55 @@ button.secondary {
   background: #475569;
 }
 
+.debug-button {
+  background: #b42318;
+  white-space: nowrap;
+}
+
+.debug-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+  gap: 20px;
+}
+
+.panel {
+  border: 1px solid #dbe3ef;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-buttons button {
+  padding: 7px 10px;
+  text-transform: capitalize;
+}
+
+.filter-buttons button.selected {
+  background: #172033;
+}
+
+.stats {
+  justify-content: flex-start;
+  color: #526078;
+  font-size: 0.9rem;
+  margin: 18px 0;
+}
+
+.stats strong {
+  color: #172033;
+  font-size: 1.25rem;
+  margin-right: 4px;
+}
+
+.hint {
+  color: #718096;
+  font-size: 0.8rem;
+}
+
 .todo-list {
   list-style: none;
   padding: 0;
@@ -59,6 +142,36 @@ button.secondary {
 .todo-list li.done span {
   text-decoration: line-through;
   color: #64748b;
+}
+
+.empty-state {
+  color: #718096;
+  font-size: 0.95rem;
+}
+
+.event-list {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 20px 0 0;
+  padding: 0;
+}
+
+.event-list li {
+  border-left: 3px solid #60a5fa;
+  display: grid;
+  gap: 4px;
+  padding-left: 12px;
+}
+
+.event-list code {
+  color: #1d4ed8;
+  font-weight: 700;
+}
+
+.event-list span {
+  color: #526078;
+  font-size: 0.9rem;
 }
 
 .status-modal {
@@ -87,4 +200,25 @@ button.secondary {
   background: #fee2e2;
   border: 1px solid #ef4444;
   color: #991b1b;
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    margin: 0 auto;
+    padding: 18px;
+  }
+
+  .app-header,
+  .debug-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .app-header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .debug-button {
+    width: 100%;
+  }
 }
