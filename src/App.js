@@ -1,7 +1,3 @@
-import { useMemo, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { addTodo, clearCompleted, toggleTodo } from './app/todoSlice';
-import StatusModal from './components/StatusModal';
 import './App.css';
 
 // function App() {
@@ -166,20 +162,26 @@ import './App.css';
 // export default App;
 
 function App() {
-return (
-    <div style={{display:'grid',gridTemplateColumns:'2fr 1fr',gap:'20px',placeItems:'center'}}>
-    <div style={{ display:'grid',backgroundColor:'lightblue',width:'100%',height:'100vh'}}>
-      <p>Hello1</p>
-    <p>Hello2</p>
-    <p>Hello3</p>
-    <p>Hello2</p>
-    <p>Hello3</p>
+  const trackButtonClick = (buttonName) => {
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'button_counter_clicked',
+      button_name: buttonName,
+    });
+  };
+
+  return (
+    <div style={{ padding: '40px', textAlign: 'center' }}>
+      <h1>Button Event Demo</h1>
+      <p>Click a button to send an event to Google Tag Manager.</p>
+      <button type="button" onClick={() => trackButtonClick('B')}>
+        Button B
+      </button>
+      <button type="button" onClick={() => trackButtonClick('Z')} style={{ marginLeft: '12px' }}>
+        Button Z
+      </button>
     </div>
-    <div>
-      <p>Hello1</p>
-    </div>
-    </div>
-)
+  );
 }
 
   export default App;
