@@ -1,10 +1,10 @@
-import React, { forwardRef } from 'react';
-import './InputBox.scss';
+import React, { forwardRef } from "react";
+import "./InputBox.scss";
 
 const InputBox = forwardRef(function InputBox(
   {
     name,
-    type = 'text',
+    type = "text",
     maxLength,
     value,
     placeholder,
@@ -17,7 +17,7 @@ const InputBox = forwardRef(function InputBox(
     icon = null,
     iconOnClick = () => {},
     closeEnabled = false,
-    width = 'auto',
+    width = "auto",
     required,
     isAadhaarType = false,
     isEmailType = false,
@@ -25,7 +25,7 @@ const InputBox = forwardRef(function InputBox(
     onPaste,
     onCut,
     onCopy,
-    dir = 'ltr',
+    dir = "ltr",
     ...rest
   },
   ref,
@@ -36,8 +36,8 @@ const InputBox = forwardRef(function InputBox(
   const formatDisplay = (inputValue) => {
     if (isAadhaarType && inputValue) {
       return inputValue
-        .replace(/\s/g, '')
-        .replace(/(\d{4})(?=\d)/g, '$1 ')
+        .replace(/\s/g, "")
+        .replace(/(\d{4})(?=\d)/g, "$1 ")
         .trim();
     }
     return inputValue;
@@ -48,7 +48,7 @@ const InputBox = forwardRef(function InputBox(
     const input = event.target;
     let cursor = input.selectionStart;
     const rawValue = isAadhaarType
-      ? input.value.replace(/\s/g, '')
+      ? input.value.replace(/\s/g, "")
       : input.value;
 
     if (isEmailType) {
@@ -63,7 +63,7 @@ const InputBox = forwardRef(function InputBox(
           value: input.value,
           name,
           isValid,
-          errorMessage: isValid ? '' : 'Please enter a valid email address',
+          errorMessage: isValid ? "" : "Please enter a valid email address",
         },
       });
       return;
@@ -71,8 +71,8 @@ const InputBox = forwardRef(function InputBox(
 
     if (isAadhaarType) {
       const isDeleteBackward =
-        event.nativeEvent?.inputType === 'deleteContentBackward';
-      if (isDeleteBackward && formatDisplay(value)?.[cursor] === ' ') {
+        event.nativeEvent?.inputType === "deleteContentBackward";
+      if (isDeleteBackward && formatDisplay(value)?.[cursor] === " ") {
         cursor -= 1;
       }
 
@@ -83,10 +83,10 @@ const InputBox = forwardRef(function InputBox(
 
       window.setTimeout(() => {
         const formatted = formatDisplay(rawValue);
-        if (event.nativeEvent?.inputType === 'insertFromPaste') {
+        if (event.nativeEvent?.inputType === "insertFromPaste") {
           input.setSelectionRange(formatted.length, formatted.length);
         } else {
-          if (formatted[cursor - 1] === ' ') cursor += 1;
+          if (formatted[cursor - 1] === " ") cursor += 1;
           input.setSelectionRange(cursor, cursor);
         }
       }, 0);
@@ -107,8 +107,8 @@ const InputBox = forwardRef(function InputBox(
 
       <div
         dir={dir}
-        className={`inputbox-wrapper${disabled ? ' is-disabled' : ''}${
-          error ? ' has-error' : ''
+        className={`inputbox-wrapper${disabled ? " is-disabled" : ""}${
+          error ? " has-error" : ""
         }`}
       >
         {prefix}
@@ -116,9 +116,9 @@ const InputBox = forwardRef(function InputBox(
           {...rest}
           ref={ref}
           id={inputId}
-          className={`inputbox-input${rest.className ? ` ${rest.className} skip-bhashini-translation notranslation` : ''}`}
+          className={`inputbox-input${rest.className ? ` ${rest.className} skip-bhashini-translation abcdata notranslation` : ""}`}
           dir="ltr"
-          inputMode={isAadhaarType ? 'numeric' : rest.inputMode}
+          inputMode={isAadhaarType ? "numeric" : rest.inputMode}
           name={name}
           type={type}
           onPaste={onPaste}
@@ -163,7 +163,9 @@ const InputBox = forwardRef(function InputBox(
 
       {error && (
         <div className="inputbox-message is-error" id={errorId} role="alert">
-          <span className="inputbox-error-icon" aria-hidden="true">!</span>
+          <span className="inputbox-error-icon" aria-hidden="true">
+            !
+          </span>
           <span>{error}</span>
         </div>
       )}
