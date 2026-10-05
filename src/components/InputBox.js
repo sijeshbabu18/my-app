@@ -116,7 +116,7 @@ const InputBox = forwardRef(function InputBox(
           {...rest}
           ref={ref}
           id={inputId}
-          className={`inputbox-input${rest.className ? ` ${rest.className}` : ''}`}
+          className={`inputbox-input${rest.className ? ` ${rest.className} skip-bhashini-translation` : ''}`}
           dir="ltr"
           inputMode={isAadhaarType ? 'numeric' : rest.inputMode}
           name={name}
