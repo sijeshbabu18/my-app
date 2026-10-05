@@ -1,5 +1,6 @@
 .container {
     position: relative;
+    isolation: isolate;
     display: grid;
     grid-template-columns: 1fr;
     min-height: 100dvh;
@@ -7,6 +8,18 @@
     justify-items: center;
     padding-top: 20vh;
     box-sizing: border-box;
+}
+
+.screen-content {
+    position: relative;
+    z-index: 1;
+}
+
+.logo {
+    display: block;
+    width: min(150px, 40vw);
+    height: auto;
+    margin: 0 auto 1rem;
 }
 
 .title {
@@ -36,7 +49,27 @@
     align-content: center;
 }
 
+.background-logo {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    z-index: 0;
+    display: block;
+    width: 90%;
+    max-height: 55vh;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-bottom: 0;
+    border-radius: 40px 40px 0 0;
+    object-fit: contain;
+    object-position: bottom;
+    pointer-events: none;
+}
+
 .bottomcarditem {
+    position: relative;
+    z-index: 1;
     height: 20px;
     width: 90%;
     display: grid;

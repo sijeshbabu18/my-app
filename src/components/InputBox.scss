@@ -1,0 +1,95 @@
+.inputbox-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.inputbox-label {
+  margin-bottom: 6px;
+  color: #3b475c;
+  font-size: 14px;
+}
+
+.inputbox-required {
+  margin-left: 3px;
+  color: #c62828;
+}
+
+.inputbox-wrapper {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 8px;
+
+  &[dir='rtl'] .inputbox-input::placeholder {
+    text-align: right;
+  }
+
+  &.is-disabled {
+    opacity: 0.6;
+  }
+
+  &.has-error {
+    border-color: #c62828;
+  }
+}
+
+.inputbox-input {
+  width: 100%;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #243146;
+  font: inherit;
+
+  &::placeholder {
+    color: #7d8aa0;
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.inputbox-action {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 5px;
+  border: 0;
+  background: transparent;
+  color: #627089;
+  cursor: pointer;
+  font: inherit;
+}
+
+.inputbox-message {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 6px 0 0;
+  font-size: 12px;
+
+  &.is-error {
+    color: #b3261e;
+  }
+
+  &.is-success {
+    color: #188038;
+  }
+}
+
+.inputbox-error-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 700;
+}
